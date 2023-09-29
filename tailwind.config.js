@@ -16,6 +16,10 @@ module.exports = {
 				lgl: "1024px",
 				xl: "1280px",
 			},
+			fontFamily: {
+				titleFont: "Roboto",
+				bodyFont: "poppins",
+			},
 		},
 	},
 	plugins: [],
