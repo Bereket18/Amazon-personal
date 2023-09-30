@@ -5,17 +5,20 @@ import { logo } from "../assets/index";
 const Header = () => {
 	return (
 		<div className="">
-			<div className="w-full bg-amazon_blue text-white px-4 py-3">
+			<div className="w-full bg-amazon_blue text-white px-4 py-3 flex items-center gap-4">
 				{/*=============Image Start here==============*/}
 				<div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
 					<img className="w-24 mt-2" src={logo} alt="amazon-logo" />
 				</div>
 				{/*=============Image Ends here==============*/}
 				{/*=============Delivery Start here==============*/}
-				<div>
+				<div className="px-2 h-[80%] flex items-center border border-transparent hover:border-white cursor-pointer duration-100">
 					<LocationOnOutlinedIcon />
-					<p>
-						Deliver to <span>Ethiopia</span>
+					<p className="text-sm text-lightText font-light flex flex-col">
+						Deliver to{" "}
+						<span className="text-sm font-semibold -mt-1 text-whiteText">
+							Ethiopia
+						</span>
 					</p>
 				</div>
 				{/*=============Delivery Ends here==============*/}
