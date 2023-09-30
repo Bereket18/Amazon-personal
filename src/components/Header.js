@@ -61,7 +61,15 @@ const Header = () => {
 				</div>
 				{/*=============Search Ends here==============*/}
 				{/*=============Sign-in Start here==============*/}
-
+				<div>
+					<p>Hello, sign in</p>
+					<p>
+						Accounts & Lists{" "}
+						<span>
+							<ArrowDropDownOutlinedIcon />
+						</span>{" "}
+					</p>
+				</div>
 				{/*=============Sign-in Ends here==============*/}
 				{/*=============Orders Start here==============*/}
 
