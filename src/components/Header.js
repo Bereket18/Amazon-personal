@@ -1,4 +1,5 @@
 import React from "react";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { logo } from "../assets/index";
 
 const Header = () => {
@@ -11,7 +12,12 @@ const Header = () => {
 				</div>
 				{/*=============Image Ends here==============*/}
 				{/*=============Delivery Start here==============*/}
-				<div></div>
+				<div>
+					<LocationOnIcon />
+					<p>
+						Deliver to <span>Ethiopia</span>
+					</p>
+				</div>
 				{/*=============Delivery Ends here==============*/}
 				{/*=============Search Start here==============*/}
 
