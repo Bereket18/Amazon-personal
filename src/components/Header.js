@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { logo } from "../assets/index";
 import { allItems } from "../constants";
+import HeaderBottom from "./HeaderBottom";
 
 const Header = () => {
 	const [ShowAll, setShowAll] = useState(false);
@@ -89,6 +90,7 @@ const Header = () => {
 				</div>
 				{/*=============cart Ends here==============*/}
 			</div>
+			<HeaderBottom />
 		</div>
 	);
 };
