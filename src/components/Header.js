@@ -61,22 +61,25 @@ const Header = () => {
 				</div>
 				{/*=============Search Ends here==============*/}
 				{/*=============Sign-in Start here==============*/}
-				<div>
-					<p>Hello, sign in</p>
-					<p>
+				<div className="flex flex-col items-start justify-center headerHover">
+					<p className="text-xs text-lightText font-light">Hello, sign in</p>
+					<p className="text-sm font-semibold -mt-l text-whiteText">
 						Accounts & Lists{" "}
 						<span>
 							<ArrowDropDownOutlinedIcon />
-						</span>{" "}
+						</span>
 					</p>
 				</div>
 				{/*=============Sign-in Ends here==============*/}
 				{/*=============Orders Start here==============*/}
-
+				<div className="flex flex-col items-start justify-center headerHover">
+					<p className="text-xs text-lightText font-light">Return</p>
+					<p className="text-sm font-semibold -mt-l text-whiteText">Orders</p>
+				</div>
 				{/*=============Orders Ends here==============*/}
-				{/*=============Delivery Start here==============*/}
+				{/*=============cart Start here==============*/}
 
-				{/*=============Delivery Ends here==============*/}
+				{/*=============cart Ends here==============*/}
 			</div>
 		</div>
 	);
