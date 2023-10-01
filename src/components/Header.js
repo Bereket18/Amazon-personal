@@ -78,7 +78,12 @@ const Header = () => {
 				</div>
 				{/*=============Orders Ends here==============*/}
 				{/*=============cart Start here==============*/}
-
+				<div className="flex flex-col items-start justify-center headerHover relative">
+					<ShoppingCartIcon />
+					<p>
+						Cart<span>0</span>
+					</p>
+				</div>
 				{/*=============cart Ends here==============*/}
 			</div>
 		</div>
