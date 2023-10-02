@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -6,6 +6,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SlideNavContent from "./SlideNavContent";
 
 const HeaderBottom = () => {
+	const ref = useRef();
 	const [Sidebar, setSidebar] = useState(false);
 	return (
 		<div className="w-full px-4 h-[36px] bg-amazon_light text-white flex items-center">
@@ -29,6 +30,7 @@ const HeaderBottom = () => {
 				<div className="w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50">
 					<div className="w-full h-full relative">
 						<motion.div
+							ref={ref}
 							initial={{ x: -500, opacity: 0 }}
 							animate={{ x: 0, opacity: 1 }}
 							transition={{ duration: 0.5 }}
