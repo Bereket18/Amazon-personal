@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
@@ -8,6 +8,13 @@ import SlideNavContent from "./SlideNavContent";
 const HeaderBottom = () => {
 	const ref = useRef();
 	const [Sidebar, setSidebar] = useState(false);
+	useEffect(() => {
+		document.body.addEventListener("click", (e) => {
+			if (e.target.contains(ref.current)) {
+				setSidebar(false);
+			}
+		});
+	}, [ref, Sidebar]);
 	return (
 		<div className="w-full px-4 h-[36px] bg-amazon_light text-white flex items-center">
 			{/* ****************** listItems Start here **************** */}
