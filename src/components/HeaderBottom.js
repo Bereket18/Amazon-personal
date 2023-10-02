@@ -8,7 +8,10 @@ const HeaderBottom = () => {
 		<div className="w-full px-4 h-[36px] bg-amazon_light text-white flex items-center">
 			{/* ****************** listItems Start here **************** */}
 			<ul className="flex items-start gap-2 text-sm tracking-tight">
-				<li className="headerHover">All</li>
+				<li className="headerHover flex items-center gap-1">
+					<MenuIcon />
+					All
+				</li>
 				<li className="headerHover">Today's Deals</li>
 				<li className="headerHover"> Customer Service</li>
 				<li className="headerHover">Gift Cards</li>
