@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import {
 	bannerImgOne,
@@ -17,22 +17,42 @@ const Banner = () => {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
+
 		appendDots: (dots) => (
 			<div
 				style={{
-					backgroundColor: "#ddd",
-					borderRadius: "10px",
-					padding: "10px",
+					position: "absolute",
+					top: "70%",
+					left: "45%",
+					transform: "translate(-50% -50%)",
+					width: "210px",
 				}}>
-				<ul style={{ margin: "0px" }}> {dots} </ul>
+				<ul
+					style={{
+						width: "100%",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+					}}>
+					{" "}
+					{dots}{" "}
+				</ul>
 			</div>
 		),
 		customPaging: (i) => (
 			<div
 				style={{
 					width: "30px",
-					color: "blue",
-					border: "1px blue solid",
+					height: "30px",
+					borderRadius: "50%",
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "center",
+					color: "white",
+					background: "#131921",
+					padding: "8px 0",
+					cursor: "pointer",
+					border: "1px solid #f3a847",
 				}}>
 				{i + 1}
 			</div>
@@ -44,6 +64,18 @@ const Banner = () => {
 				<Slider {...settings}>
 					<div>
 						<img src={bannerImgOne} alt="bannerImg1" />
+					</div>
+					<div>
+						<img src={bannerImgTwo} alt="ban2" />
+					</div>
+					<div>
+						<img src={bannerImgThree} alt="ban3" />
+					</div>
+					<div>
+						<img src={bannerImgFour} alt="ban4" />
+					</div>
+					<div>
+						<img src={bannerImgFive} alt="ban5" />
 					</div>
 					<div style={{ backgroundColor: "black" }}>
 						<video
@@ -58,18 +90,6 @@ const Banner = () => {
 							src={CarouselOne}
 							alt="carouse"
 						/>
-					</div>
-					<div>
-						<img src={bannerImgTwo} alt="ban2" />
-					</div>
-					<div>
-						<img src={bannerImgThree} alt="ban3" />
-					</div>
-					<div>
-						<img src={bannerImgFour} alt="ban4" />
-					</div>
-					<div>
-						<img src={bannerImgFive} alt="ban5" />
 					</div>
 				</Slider>
 			</div>
