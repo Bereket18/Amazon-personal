@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import SlideNavContent from "./SlideNavContent";
 
 const HeaderBottom = () => {
 	const [Sidebar, setSidebar] = useState(false);
@@ -33,6 +34,30 @@ const HeaderBottom = () => {
 									Hello, Sign In
 								</h3>
 							</div>
+							<SlideNavContent
+								title="Digital Content & Devices"
+								one="Amazon Music"
+								two="	Kindle E-readers & Books"
+								three="Amazon Appstore"
+							/>
+							<SlideNavContent
+								title="Shop By Department"
+								one="Electronics"
+								two="	Computers"
+								three="Smart Home"
+							/>
+							<SlideNavContent
+								title="Programs & Features"
+								one="Gift Cards"
+								two="Amazon live"
+								three="International Shopping"
+							/>
+							<SlideNavContent
+								title="Help & Settings"
+								one="Your Account"
+								two="Customer Service"
+								three="Contact Us"
+							/>
 						</div>
 					</div>
 				</div>
