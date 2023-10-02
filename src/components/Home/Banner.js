@@ -10,6 +10,7 @@ import {
 import CarouselVid from "../../assets/banner/carousel_vid.mp4";
 import CarouselOne from "../../assets/banner/carousel_1.jpg";
 const Banner = () => {
+	const [dotActive, setDocActive] = useState(0);
 	const settings = {
 		dots: true,
 		infinite: true,
@@ -17,7 +18,9 @@ const Banner = () => {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
-
+		beforeChange: (prev, next) => {
+			setDocActive(next);
+		},
 		appendDots: (dots) => (
 			<div
 				style={{
@@ -41,19 +44,35 @@ const Banner = () => {
 		),
 		customPaging: (i) => (
 			<div
-				style={{
-					width: "30px",
-					height: "30px",
-					borderRadius: "50%",
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
-					color: "white",
-					background: "#131921",
-					padding: "8px 0",
-					cursor: "pointer",
-					border: "1px solid #f3a847",
-				}}>
+				style={
+					i === dotActive
+						? {
+								width: "30px",
+								height: "30px",
+								borderRadius: "50%",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								color: "white",
+								background: "#131921",
+								padding: "8px 0",
+								cursor: "pointer",
+								border: "1px solid #f3a847",
+						  }
+						: {
+								width: "30px",
+								height: "30px",
+								borderRadius: "50%",
+								display: "flex",
+								alignItems: "center",
+								justifyContent: "center",
+								background: "#232F3E",
+								color: "white",
+								padding: "8px 0",
+								cursor: "pointer",
+								border: "1px solid white",
+						  }
+				}>
 				{i + 1}
 			</div>
 		),
