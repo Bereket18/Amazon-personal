@@ -39,38 +39,40 @@ const Banner = () => {
 		),
 	};
 	return (
-		<div>
-			<Slider {...settings}>
-				<div>
-					<img src={bannerImgOne} alt="bannerImg1" />
-				</div>
-				<div style={{ backgroundColor: "black" }}>
-					<video
-						controls
-						autoPlay
-						muted
-						style={{ height: "300px", width: "100%" }}>
-						<source src={CarouselVid} type="video/mp4" autoPlay />
-					</video>
-					<img
-						style={{ height: "300px", width: "100%" }}
-						src={CarouselOne}
-						alt="carouse"
-					/>
-				</div>
-				<div>
-					<img src={bannerImgTwo} alt="ban2" />
-				</div>
-				<div>
-					<img src={bannerImgThree} alt="ban3" />
-				</div>
-				<div>
-					<img src={bannerImgFour} alt="ban4" />
-				</div>
-				<div>
-					<img src={bannerImgFive} alt="ban5" />
-				</div>
-			</Slider>
+		<div className="w-full">
+			<div className="w-full h-full relative">
+				<Slider {...settings}>
+					<div>
+						<img src={bannerImgOne} alt="bannerImg1" />
+					</div>
+					<div style={{ backgroundColor: "black" }}>
+						<video
+							controls
+							autoPlay
+							muted
+							style={{ height: "300px", width: "100%" }}>
+							<source src={CarouselVid} type="video/mp4" autoPlay />
+						</video>
+						<img
+							style={{ height: "300px", width: "100%" }}
+							src={CarouselOne}
+							alt="carouse"
+						/>
+					</div>
+					<div>
+						<img src={bannerImgTwo} alt="ban2" />
+					</div>
+					<div>
+						<img src={bannerImgThree} alt="ban3" />
+					</div>
+					<div>
+						<img src={bannerImgFour} alt="ban4" />
+					</div>
+					<div>
+						<img src={bannerImgFive} alt="ban5" />
+					</div>
+				</Slider>
+			</div>
 		</div>
 	);
 };
