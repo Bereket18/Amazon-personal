@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -27,7 +28,10 @@ const HeaderBottom = () => {
 			{Sidebar && (
 				<div className="w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50">
 					<div className="w-full h-full relative">
-						<div className="w-[350px] h-full bg-white border border-black">
+						<motion.div
+							initial={{ x: -500, opacity: 0 }}
+							animate={{ x: 0, opacity: 1 }}
+							className="w-[350px] h-full bg-white border border-black">
 							<div className="w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4">
 								<AccountCircleIcon />
 								<h3 className="font-titleFont font-bold text-lg tracking-wide">
@@ -58,7 +62,12 @@ const HeaderBottom = () => {
 								two="Customer Service"
 								three="Contact Us"
 							/>
-						</div>
+						</motion.div>
+						<span
+							onClick={() => setSidebar(false)}
+							className="cursor-pointer absolute top-0 left-[360px] w-10 h-10 text-black flex items-center justify-center border bg-gray-200 hover:bg-red-500 hover:text-white duration-300">
+							<CloseIcon />
+						</span>
 					</div>
 				</div>
 			)}
