@@ -11,6 +11,7 @@ import {
 	RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home";
+import { ProductsData } from "./api/api";
 
 const Layout = () => {
 	return (
@@ -26,7 +27,7 @@ function App() {
 	const router = createBrowserRouter(
 		createRoutesFromElements(
 			<Route path="/" element={<Layout />}>
-				<Route index element={<Home />}></Route>
+				<Route index element={<Home />} loader={ProductsData}></Route>
 			</Route>
 		)
 	);
