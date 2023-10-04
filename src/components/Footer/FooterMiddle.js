@@ -1,6 +1,7 @@
 import React from "react";
 import FooterMdList from "./FooterMdList";
 import { middleList } from "../../constants";
+import { logo, ET } from "../../assets/index";
 
 const FooterMiddle = () => {
 	return (
@@ -20,6 +21,11 @@ const FooterMiddle = () => {
 			</div>
 			{/******************Top Ends Here*********************/}
 			{/******************Bottom Starts Here*********************/}
+			<div className="w-full flex gap-6 items-center justify-center py-6">
+				<div>
+					<img src={logo} alt="Flag" />
+				</div>
+			</div>
 			{/******************Bottom Ends Here*********************/}
 		</div>
 	);
