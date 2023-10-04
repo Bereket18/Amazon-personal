@@ -12,7 +12,7 @@ const Header = () => {
 	console.log(ShowAll);
 
 	return (
-		<div className="">
+		<div className="w-full sticky top-0 z-50">
 			<div className="w-full bg-amazon_blue text-white px-4 py-3 flex items-center gap-4">
 				{/*=============Image Start here==============*/}
 				<div className="headerHover">
