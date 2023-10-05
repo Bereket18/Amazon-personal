@@ -25,11 +25,11 @@ const HeaderBottom = () => {
 					<MenuIcon />
 					All
 				</li>
-				<li className="headerHover">Today's Deals</li>
-				<li className="headerHover"> Customer Service</li>
-				<li className="headerHover">Gift Cards</li>
-				<li className="headerHover">Registry</li>
-				<li className="headerHover">Sell</li>
+				<li className="headerHover hidden md:inline-flex">Today's Deals</li>
+				<li className="headerHover hidden md:inline-flex"> Customer Service</li>
+				<li className="headerHover hidden md:inline-flex">Gift Cards</li>
+				<li className="headerHover hidden md:inline-flex">Registry</li>
+				<li className="headerHover hidden md:inline-flex">Sell</li>
 			</ul>
 			{/* ****************** listItems End here  ***************** */}
 			{/* ****************** SlideNav Start here ***************** */}

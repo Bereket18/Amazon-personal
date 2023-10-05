@@ -20,7 +20,7 @@ const Header = () => {
 				</div>
 				{/*=============Image Ends here==============*/}
 				{/*=============Delivery Start here==============*/}
-				<div className="headerHover">
+				<div className="headerHover hidden md:inline-flex">
 					<LocationOnOutlinedIcon />
 					<p className="text-sm text-lightText font-light flex flex-col">
 						Deliver to{" "}
@@ -31,7 +31,7 @@ const Header = () => {
 				</div>
 				{/*=============Delivery Ends here==============*/}
 				{/*=============Search Start here==============*/}
-				<div className="h-10 rounded-md flex flex-grow relative">
+				<div className="h-10 rounded-md hidden lgl:flex  flex-grow relative">
 					<span
 						onClick={() => setShowAll(!ShowAll)}
 						className="w-14 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md">
@@ -63,8 +63,10 @@ const Header = () => {
 				{/*=============Search Ends here==============*/}
 				{/*=============Sign-in Start here==============*/}
 				<div className="flex flex-col items-start justify-center headerHover">
-					<p className="text-xs text-lightText font-light">Hello, sign in</p>
-					<p className="text-sm font-semibold -mt-l text-whiteText">
+					<p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">
+						Hello, sign in
+					</p>
+					<p className="text-sm font-semibold -mt-l text-whiteText hidden mdl:inline-flex">
 						Accounts & Lists{" "}
 						<span>
 							<ArrowDropDownOutlinedIcon />
@@ -73,7 +75,7 @@ const Header = () => {
 				</div>
 				{/*=============Sign-in Ends here==============*/}
 				{/*=============Orders Start here==============*/}
-				<div className="flex flex-col items-start justify-center headerHover">
+				<div className="hidden md:inline-flex flex-col items-start justify-center headerHover">
 					<p className="text-xs text-lightText font-light">Return</p>
 					<p className="text-sm font-semibold -mt-l text-whiteText">Orders</p>
 				</div>
