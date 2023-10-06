@@ -7,8 +7,8 @@ import {
 	bannerImgFour,
 	bannerImgFive,
 } from "../../assets/index";
-import CarouselVid from "../../assets/banner/carousel_vid.mp4";
-import CarouselOne from "../../assets/banner/carousel_1.jpg";
+// import CarouselVid from "../../assets/banner/carousel_vid.mp4";
+// import CarouselOne from "../../assets/banner/carousel_1.jpg";
 const Banner = () => {
 	const [dotActive, setDocActive] = useState(0);
 	const settings = {
@@ -26,7 +26,9 @@ const Banner = () => {
 				style={{
 					position: "absolute",
 					top: "70%",
-					left: "45%",
+					left: "0",
+					right: "0",
+					margin: "0 auto",
 					transform: "translate(-50% -50%)",
 					width: "210px",
 				}}>
@@ -76,6 +78,32 @@ const Banner = () => {
 				{i + 1}
 			</div>
 		),
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: true,
+					dots: true,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	};
 	return (
 		<div className="w-full">
@@ -96,20 +124,12 @@ const Banner = () => {
 					<div>
 						<img src={bannerImgFive} alt="ban5" />
 					</div>
-					<div style={{ backgroundColor: "black" }}>
-						<video
-							controls
-							autoPlay
-							muted
-							style={{ height: "300px", width: "100%" }}>
+					{/* <div className="h-full ">
+						<video controls autoPlay muted>
 							<source src={CarouselVid} type="video/mp4" autoPlay />
 						</video>
-						<img
-							style={{ height: "300px", width: "100%" }}
-							src={CarouselOne}
-							alt="carouse"
-						/>
-					</div>
+						<img src={CarouselOne} alt="carouse" />
+					</div> */}
 				</Slider>
 			</div>
 		</div>
