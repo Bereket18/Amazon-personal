@@ -13,6 +13,7 @@ import {
 import Home from "./pages/Home";
 import { ProductsData } from "./api/api";
 import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
 
 const Layout = () => {
 	return (
@@ -32,6 +33,7 @@ function App() {
 					<Route index element={<Home />} loader={ProductsData}></Route>
 				</Route>
 				<Route path="/signin" element={<Signin />}></Route>
+				<Route path="/signup" element={<Signup />}></Route>
 			</Route>
 		)
 	);

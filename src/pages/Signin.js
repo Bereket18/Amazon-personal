@@ -66,9 +66,8 @@ const Signin = () => {
 						<span className="w-1/3 text-center">New to Amazon?</span>
 						<span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
 					</p>
-					<Link className="w-full" to="signup">
+					<Link className="w-full" to="/signup">
 						<button
-							onClick={(event) => event.preventDefault()}
 							className="w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t
         from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400
         active:border-yellow-800 active:shadow-amazonInput ">
