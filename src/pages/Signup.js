@@ -48,12 +48,16 @@ const Signup = () => {
 		}
 		if (!email) {
 			setErrEmail("Enter your email or mobile phone number");
+		} else {
+			if (!emailValidation(email)) {
+				setErrEmail("Please enter a valid email");
+			}
 		}
 		if (!password) {
 			setErrPassword("Enter your password");
 		} else {
 			if (password.length < 6) {
-				setErrCpassword("Minimum 6 characters required");
+				setErrPassword("Minimum 6 characters required");
 			}
 		}
 		if (!cPassword) {
@@ -62,6 +66,22 @@ const Signup = () => {
 			if (cPassword !== password) {
 				setErrCpassword("Passwords must match");
 			}
+		}
+
+		if (
+			errClientName &&
+			email &&
+			emailValidation(email) &&
+			password &&
+			password.length >= 6 &&
+			cPassword &&
+			cPassword === password
+		) {
+			console.log(clientName, email, password, cPassword);
+			setClientName("");
+			setEmail("");
+			setPassword("");
+			setCpassword("");
 		}
 	};
 	return (
@@ -83,7 +103,7 @@ const Signup = () => {
 								<input
 									onChange={handleName}
 									placeholder="First and last name"
-									className="w-full lowercase py-1 border border-zinc-400 
+									className="w-full py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
 									type="text"
@@ -126,7 +146,7 @@ const Signup = () => {
 								<input
 									onChange={handlePassword}
 									placeholder="At least 6 characters"
-									className=" w-full lowercase py-1 border border-zinc-400 
+									className=" w-full py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
 									type="password"
