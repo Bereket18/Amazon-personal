@@ -21,16 +21,16 @@ const Signup = () => {
 		setErrClientName("");
 	};
 	const handleEmail = (e) => {
-		setClientName(e.target.value);
-		setErrClientName("");
+		setEmail(e.target.value);
+		setErrEmail("");
 	};
 	const handlePassword = (e) => {
-		setClientName(e.target.value);
-		setErrClientName("");
+		setPassword(e.target.value);
+		setErrPassword("");
 	};
 	const handleCpassword = (e) => {
-		setClientName(e.target.value);
-		setErrClientName("");
+		setCpassword(e.target.value);
+		setErrCpassword("");
 	};
 	//submit button start
 	const handleRegistration = (e) => {
@@ -51,8 +51,8 @@ const Signup = () => {
 		if (!cPassword) {
 			setErrCpassword("confirm your password");
 		} else {
-			if (!cPassword !== password) {
-				setErrPassword("Passwords must match");
+			if (cPassword !== password) {
+				setErrCpassword("Passwords must match");
 			}
 		}
 	};
@@ -151,7 +151,7 @@ const Signup = () => {
 									className="w-full lowercase py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
-									type="text"
+									type="password"
 								/>
 								{errCpassword && (
 									<p
