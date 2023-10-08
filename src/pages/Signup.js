@@ -67,9 +67,8 @@ const Signup = () => {
 				setErrCpassword("Passwords must match");
 			}
 		}
-
 		if (
-			errClientName &&
+			clientName &&
 			email &&
 			emailValidation(email) &&
 			password &&
@@ -102,6 +101,7 @@ const Signup = () => {
 								<p className="text-sm font-medium">Your name</p>
 								<input
 									onChange={handleName}
+									value={clientName}
 									placeholder="First and last name"
 									className="w-full py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
@@ -124,6 +124,7 @@ const Signup = () => {
 								<p className="text-sm font-medium">Mobile number or email</p>
 								<input
 									onChange={handleEmail}
+									value={email}
 									className="w-full lowercase py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
@@ -145,6 +146,7 @@ const Signup = () => {
 								<p className="text-sm font-medium">Password</p>
 								<input
 									onChange={handlePassword}
+									value={password}
 									placeholder="At least 6 characters"
 									className=" w-full py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
@@ -165,7 +167,7 @@ const Signup = () => {
 								<p className="text-xs text-black-600">
 									<span
 										className="text-blue-600 font-serif text-sm mr-1
-                   italic">
+                  italic">
 										{" "}
 										i{" "}
 									</span>{" "}
@@ -176,6 +178,7 @@ const Signup = () => {
 								<p className="text-sm font-medium">Re-enter password</p>
 								<input
 									onChange={handleCpassword}
+									value={cPassword}
 									className="w-full lowercase py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"

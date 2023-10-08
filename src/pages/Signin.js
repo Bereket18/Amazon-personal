@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { darkLogo } from "../assets";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { Link } from "react-router-dom";
 
 const Signin = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [errEmail, setErrEmail] = useState("");
+	const [errPassword, setErrPassword] = useState("");
+
+	//handle email starts here
+	const handleEmail = (e) => {
+		setEmail(e.target.value);
+		setErrEmail("");
+	};
+
+	//handle password starts here
+	const handlePassword = (e) => {
+		setPassword(e.target.value);
+		setErrPassword("");
+	};
+
+	//handle login starts here
+	const handleLogin = (e) => {
+		e.preventDefault();
+		if (!email) {
+			setErrEmail("Enter your email or mobile phone number");
+		}
+		if (!password) {
+			setErrPassword("Enter your password");
+		}
+		if (email && password) {
+			console.log(email, password);
+			setEmail("");
+			setPassword("");
+		}
+	};
+
 	return (
 		<div className="w-full">
 			<div className="w-full bg-gray-100 pb-10">
@@ -19,21 +52,47 @@ const Signin = () => {
 									Email or Mobile Phone Number
 								</p>
 								<input
+									onChange={handleEmail}
+									value={email}
 									className="w-full lowercase py-1 border border-zinc-400 
                   px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100"
-									type="email"
+									type="email tel"
 								/>
+								{errEmail && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{errEmail}
+									</p>
+								)}
 							</div>
 							<div className="flex flex-col gap-2">
 								<p className="text-sm font-medium ">Password</p>
 								<input
+									onChange={handlePassword}
+									value={password}
 									className="w-full lowercase py-1 border border-zinc-400 
                   px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput duration-100"
 									type="Password"
 								/>
+								{errPassword && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{errPassword}
+									</p>
+								)}
 							</div>
 							<button
-								onClick={(event) => event.preventDefault()}
+								onClick={handleLogin}
 								className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t 
               from-[#fed20b] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput mt-1">
 								Continue
@@ -60,6 +119,17 @@ const Signin = () => {
 								Need Help?
 							</span>
 						</p>
+						<div className="w-full text-xs text-gray-600 mt-4 flex items-center my-3">
+							<span className="w-2/3 h-[1px] bg-zinc-400 inline-flex ml-12"></span>
+						</div>
+						<div className="text-xs text-black leading-4 mt-4">
+							<p className="font-semibold">Buying for work?</p>
+							<span
+								className="text-blue-500 hover:text-orange-600 hover:underline underline-offset-1
+          cursor-pointer duration-100">
+								<p className="mt-2">Shop on Amazon Business</p>
+							</span>
+						</div>
 					</div>
 					<p className="w-full text-xs text-gray-600 mt-4 flex items-center">
 						<span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
@@ -69,7 +139,7 @@ const Signin = () => {
 					<Link className="w-full" to="/signup">
 						<button
 							className="w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t
-        from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400
+        from-slate-100 to-slate-200 hover:bg-gradient-to-b border border-zinc-400
         active:border-yellow-800 active:shadow-amazonInput ">
 							Create your Amazon account
 						</button>
