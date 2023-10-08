@@ -7,23 +7,53 @@ const Signup = () => {
 	const [clientName, setClientName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [cPassword, setcPassword] = useState("");
+	const [cPassword, setCpassword] = useState("");
 
 	//Error handling message start
 	const [errClientName, setErrClientName] = useState("");
 	const [erremail, setErrEmail] = useState("");
 	const [errpassword, setErrPassword] = useState("");
-	const [errcPassword, setErrcPassword] = useState("");
+	const [errCpassword, setErrCpassword] = useState("");
 
 	//Handle function Start
 	const handleName = (e) => {
 		setClientName(e.target.value);
 		setErrClientName("");
 	};
+	const handleEmail = (e) => {
+		setClientName(e.target.value);
+		setErrClientName("");
+	};
+	const handlePassword = (e) => {
+		setClientName(e.target.value);
+		setErrClientName("");
+	};
+	const handleCpassword = (e) => {
+		setClientName(e.target.value);
+		setErrClientName("");
+	};
+	//submit button start
 	const handleRegistration = (e) => {
 		e.preventDefault();
 		if (!clientName) {
 			setErrClientName(" Enter your name");
+		}
+		if (!email) {
+			setErrEmail("Enter your email or mobile phone number");
+		}
+		if (!password) {
+			setErrPassword("Enter your password");
+		} else {
+			if (password.length < 6) {
+				setErrCpassword("Minimum 6 characters required");
+			}
+		}
+		if (!cPassword) {
+			setErrCpassword("confirm your password");
+		} else {
+			if (!cPassword !== password) {
+				setErrPassword("Passwords must match");
+			}
 		}
 	};
 	return (
@@ -75,6 +105,7 @@ const Signup = () => {
 							<div className="flex flex-col gap-3">
 								<p className="text-sm font-medium">Password</p>
 								<input
+									onChange={handlePassword}
 									placeholder="At least 6 characters"
 									className=" w-full lowercase py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
@@ -94,6 +125,7 @@ const Signup = () => {
 							<div className="flex flex-col gap-3">
 								<p className="text-sm font-medium">Re-enter password</p>
 								<input
+									onChange={handleCpassword}
 									className="w-full lowercase py-1 border border-zinc-400 
                   px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
