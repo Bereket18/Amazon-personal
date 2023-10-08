@@ -32,7 +32,15 @@ const Signup = () => {
 		setCpassword(e.target.value);
 		setErrCpassword("");
 	};
-	//submit button start
+
+	// Email validation starts here
+	const emailValidation = (email) => {
+		return String(email)
+			.toLowerCase()
+			.match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
+	};
+
+	//submit button starts here
 	const handleRegistration = (e) => {
 		e.preventDefault();
 		if (!clientName) {
