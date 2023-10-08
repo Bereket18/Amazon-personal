@@ -11,8 +11,8 @@ const Signup = () => {
 
 	//Error handling message start
 	const [errClientName, setErrClientName] = useState("");
-	const [erremail, setErrEmail] = useState("");
-	const [errpassword, setErrPassword] = useState("");
+	const [errEmail, setErrEmail] = useState("");
+	const [errPassword, setErrPassword] = useState("");
 	const [errCpassword, setErrCpassword] = useState("");
 
 	//Handle function Start
@@ -101,6 +101,17 @@ const Signup = () => {
                   focus-within:shadow-amazonInput duration-100"
 									type="email tel"
 								/>
+								{errEmail && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{errEmail}
+									</p>
+								)}
 							</div>
 							<div className="flex flex-col gap-3">
 								<p className="text-sm font-medium">Password</p>
@@ -112,6 +123,17 @@ const Signup = () => {
                   focus-within:shadow-amazonInput duration-100"
 									type="password"
 								/>
+								{errPassword && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{errPassword}
+									</p>
+								)}
 								<p className="text-xs text-black-600">
 									<span
 										className="text-blue-600 font-serif text-sm mr-1
@@ -131,6 +153,17 @@ const Signup = () => {
                   focus-within:shadow-amazonInput duration-100"
 									type="text"
 								/>
+								{errCpassword && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{errCpassword}
+									</p>
+								)}
 							</div>
 							<button
 								onClick={handleRegistration}
