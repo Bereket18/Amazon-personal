@@ -10,16 +10,21 @@ const Signup = () => {
 	const [cPassword, setcPassword] = useState("");
 
 	//Error handling message start
-	const [errName, setErrName] = useState("");
+	const [errClientName, setErrClientName] = useState("");
 	const [erremail, setErrEmail] = useState("");
 	const [errpassword, setErrPassword] = useState("");
 	const [errcPassword, setErrcPassword] = useState("");
 
+	//Handle function Start
 	const handleName = (e) => {
 		setClientName(e.target.value);
+		setErrClientName("");
 	};
 	const handleRegistration = (e) => {
 		e.preventDefault();
+		if (!clientName) {
+			setErrClientName(" Enter your name");
+		}
 	};
 	return (
 		<div className="w-full">
@@ -38,18 +43,31 @@ const Signup = () => {
 							<div className="flex flex-col gap-2">
 								<p className="text-sm font-medium">Your name</p>
 								<input
+									onChange={handleName}
+									placeholder="First and last name"
 									className="w-full lowercase py-1 border border-zinc-400 
-                  px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] 
+                  px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
 									type="text"
 								/>
+								{errClientName && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{errClientName}
+									</p>
+								)}
 							</div>
 							<div className="flex flex-col gap-3">
 								<p className="text-sm font-medium">Mobile number or email</p>
 								<input
-									onChange={handleName}
+									onChange={handleEmail}
 									className="w-full lowercase py-1 border border-zinc-400 
-                  px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] 
+                  px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
 									type="email tel"
 								/>
@@ -57,8 +75,9 @@ const Signup = () => {
 							<div className="flex flex-col gap-3">
 								<p className="text-sm font-medium">Password</p>
 								<input
-									className="w-full lowercase py-1 border border-zinc-400 
-                  px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] 
+									placeholder="At least 6 characters"
+									className=" w-full lowercase py-1 border border-zinc-400 
+                  px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
 									type="password"
 								/>
@@ -76,7 +95,7 @@ const Signup = () => {
 								<p className="text-sm font-medium">Re-enter password</p>
 								<input
 									className="w-full lowercase py-1 border border-zinc-400 
-                  px-2 text-base rounded-sm outline-none focus-within:border-[#e77600] 
+                  px-2 text-sm rounded-sm outline-none focus-within:border-[#e77600] 
                   focus-within:shadow-amazonInput duration-100"
 									type="text"
 								/>
