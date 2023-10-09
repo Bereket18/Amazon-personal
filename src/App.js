@@ -14,6 +14,7 @@ import Home from "./pages/Home";
 import { ProductsData } from "./api/api";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
+import Cart from "./pages/Cart";
 
 const Layout = () => {
 	return (
@@ -31,6 +32,7 @@ function App() {
 			<Route>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<Home />} loader={ProductsData}></Route>
+					<Route path="/cart" element={<Cart />}></Route>
 				</Route>
 				<Route path="/signin" element={<Signin />}></Route>
 				<Route path="/signup" element={<Signup />}></Route>
