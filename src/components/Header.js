@@ -11,7 +11,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-	const products = useSelector((state) => state.amazonReducer.products)
+	const products = useSelector((state) => state.amazon.products)
 	// console.log(products)
 
 	const [city, setCity] = useState();

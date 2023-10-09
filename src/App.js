@@ -9,6 +9,7 @@ import {
 	Outlet,
 	Route,
 	RouterProvider,
+	ScrollRestoration
 } from "react-router-dom";
 import Home from "./pages/Home";
 import { ProductsData } from "./api/api";
@@ -20,6 +21,7 @@ const Layout = () => {
 	return (
 		<div>
 			<Header />
+			<ScrollRestoration />
 			<Outlet />
 			<Footer />
 		</div>
