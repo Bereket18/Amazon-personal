@@ -7,6 +7,7 @@ import ApiIcon from "@mui/icons-material/Api";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/amazonSlice";
 
 const Products = () => {
 	const dispatch = useDispatch();
@@ -78,9 +79,18 @@ const Products = () => {
 							</div>
 						</div>
 						<button
+							onClick={() => dispatch(addToCart({
+								id: item.id,
+								title: item.title,
+								description: item.description,
+								price: item.price,
+								category: item.category,
+								image: item.image,
+								quantity: 1
+							}))}
 							className="w-full py-1.5 rounded-md mt-3 font-titleFont font-medium text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border
-			 border-yellow-500 hover:border-yellow-700 hover:from-yellow-300 to hover:to-yellow-400 active:bg-gradient-to-bl active:from-yellow-400
-			  active:to-yellow-500 duration-200">
+			             border-yellow-500 hover:border-yellow-700 hover:from-yellow-300 to hover:to-yellow-400 active:bg-gradient-to-bl active:from-yellow-400
+			            active:to-yellow-500 duration-200">
 							Add to Cart
 						</button>
 					</div>

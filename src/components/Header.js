@@ -36,8 +36,9 @@ const Header = () => {
 				{/*=============Delivery Start here==============*/}
 				<div className="headerHover hidden md:inline-flex">
 					<LocationOnOutlinedIcon />
-					<p className="text-sm text-lightText font-light flex flex-col">
+					<p className="text-xs text-lightText font-light flex flex-col">
 						Deliver to{" "}
+
 						<span className="text-sm font-semibold -mt-1 text-whiteText">
 							{city} {postal}
 						</span>
@@ -78,10 +79,10 @@ const Header = () => {
 				{/*=============Sign-in Start here==============*/}
 				<Link to="/signin">
 					<div className="flex flex-col items-start justify-center headerHover">
-						<p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">
+						<p className="text-xs md:text-xs text-white md:text-lightText font-light">
 							Hello, sign in
 						</p>
-						<p className="text-sm font-semibold -mt-l text-whiteText hidden mdl:inline-flex">
+						<p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
 							Accounts & Lists{" "}
 							<span>
 								<ArrowDropDownOutlinedIcon />
@@ -92,8 +93,8 @@ const Header = () => {
 				{/*=============Sign-in Ends here==============*/}
 				{/*=============Orders Start here==============*/}
 				<div className="hidden md:inline-flex flex-col items-start justify-center headerHover">
-					<p className="text-xs text-lightText font-light">Return</p>
-					<p className="text-sm font-semibold -mt-l text-whiteText">Orders</p>
+					<p className="text-xs text-lightText font-light">Returns</p>
+					<p className="text-sm font-semibold -mt-1 text-whiteText">& Orders</p>
 				</div>
 				{/*=============Orders Ends here==============*/}
 				{/*=============cart Start here==============*/}
@@ -101,7 +102,7 @@ const Header = () => {
 					<ShoppingCartIcon />
 					<p className="text-xs font-semibold mt-3 text-whiteText">
 						Cart
-						<span className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center ">
+						<span className="absolute text-xs top-0 left-6 font-semibold p-1 h-4 bg-[#f3a847] text-amazon_blue rounded-full flex justify-center items-center ">
 							0
 						</span>
 					</p>
