@@ -54,6 +54,9 @@ const Cart = () => {
                 </div>
               ))}
           </div>
+          <div className='bg-[#F0F2F2] flex justify-center items-center gap-2 w-36 py-1 text-center drop-shadow-lg rounded-md'>
+            <button className='bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300'>Clear all items</button>
+          </div>
         </div>
         <div className='w-full h-52 bg-white col-span-1 flex flex-col justify-center items-center p-4'>
           <div >
@@ -63,7 +66,7 @@ const Cart = () => {
             </p>
           </div>
           <div>
-            <p className='font-semibold px-10 py-1 flex items-center justify-between'>Total: <span className='text-lg font-bold'>${totalPrice}</span> </p>
+            <p className='font-semibold px-6 py-1 flex items-center gap-2 justify-between'>Total: <span className='text-lg font-bold'>${totalPrice}</span> </p>
           </div>
           <button className='w-full font-titleFont font-medium text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow-400 border-yellow-500
           hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3'>Proceed to checkout</button>
