@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { decrementQuantity, deleteItem, incrementQuantity, resetCart } from '../redux/amazonSlice';
 
 const Cart = () => {
+  const dispatch = useDispatch()
   const products = useSelector((state) => state.amazonReducer.products)
   const [totalPrice, setTotalPrice] = useState("")
   useEffect(() => {
@@ -41,11 +43,11 @@ const Cart = () => {
                       </p>
                       <div className='bg-[#F0F2F2] flex justify-center items-center gap-2 w-36 py-1 mt-2 text-center drop-shadow-lg rounded-md'>
                         <p>Qty:</p>
-                        <p className='cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-gray-400 font-semibold duration-300'>-</p>
+                        <p onClick={() => dispatch(decrementQuantity(item.id))} className='cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-gray-400 font-semibold duration-300'>-</p>
                         <p className='font-titleFont text-base font-semibold text-amazon_blue'>{item.quantity}</p>
-                        <p className='cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-gray-400 font-semibold duration-300'>+</p>
+                        <p onClick={() => dispatch(incrementQuantity(item.id))} className='cursor-pointer bg-gray-200 px-2 rounded-sm hover:bg-gray-400 font-semibold duration-300'>+</p>
                       </div>
-                      <button className='bg-red-500 w-36 py-1 rounded-lg text-white mt-3 hover:bg-red-700 active:bg-red-900 duration-300'>Delete Item</button>
+                      <button onClick={() => dispatch(deleteItem(item.id))} className='bg-red-500 w-36 py-1 rounded-lg text-white mt-3 hover:bg-red-700 active:bg-red-900 duration-300'>Delete Item</button>
                     </div>
                     <div>
                       <p className='text-lg xl:w-24 font-titleFont font-semibold'>${item.price * item.quantity}</p>
@@ -55,7 +57,7 @@ const Cart = () => {
               ))}
           </div>
           <div className='bg-[#F0F2F2] flex justify-center items-center gap-2 w-36 py-1 text-center drop-shadow-lg rounded-md'>
-            <button className='bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300'>Clear all items</button>
+            <button onClick={() => dispatch(resetCart())} className='bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300'>Clear all items</button>
           </div>
         </div>
         <div className='w-full h-52 bg-white col-span-1 flex flex-col justify-center items-center p-4'>
