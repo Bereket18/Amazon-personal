@@ -88,7 +88,7 @@ const Header = () => {
 						<p className="text-xs md:text-xs text-white md:text-lightText font-light">
 							Hello, sign in
 						</p>
-						<p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
+						<p className="text-sm font-semibold -mt-1 text-whiteText hidden md:inline-flex">
 							Accounts & Lists{" "}
 							<span>
 								<ArrowDropDownOutlinedIcon />
