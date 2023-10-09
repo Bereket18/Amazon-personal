@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,8 +7,21 @@ import { logo } from "../assets/index";
 import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
+	const [city, setCity] = useState();
+	const [postal, setPostal] = useState();
+	// setting current city and postal using api
+	useEffect(() => {
+		axios
+			.get("https://ipinfo.io/json?token=9792e4a0d74241")
+			.then((response) => {
+				setCity(response.data.city);
+				setPostal(response.data.postal);
+			});
+	}, []);
+
 	const [ShowAll, setShowAll] = useState(false);
 	console.log(ShowAll);
 
@@ -26,7 +39,7 @@ const Header = () => {
 					<p className="text-sm text-lightText font-light flex flex-col">
 						Deliver to{" "}
 						<span className="text-sm font-semibold -mt-1 text-whiteText">
-							Ethiopia
+							{city} {postal}
 						</span>
 					</p>
 				</div>

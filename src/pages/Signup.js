@@ -87,11 +87,14 @@ const Signup = () => {
 		<div className="w-full">
 			<div className="w-full bg-gray-100 pb-10">
 				<form className="w-[350px] mx-auto flex flex-col items-center">
-					<img
-						className="w-28 mt-4 mb-4"
-						src={darkLogo}
-						alt="dark-amazon-logo"
-					/>
+					<Link to="/">
+						<img
+							className="w-28 mt-4 mb-4"
+							src={darkLogo}
+							alt="dark-amazon-logo"
+						/>
+					</Link>
+
 					<div className="w-full border border-zinc-200 p-6">
 						<h2 className="font-titleFont text-3xl font mb-4">
 							Create account
