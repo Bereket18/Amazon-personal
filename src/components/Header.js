@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
 	const products = useSelector((state) => state.amazonReducer.products)
-	console.log(products)
+	// console.log(products)
 
 	const [city, setCity] = useState();
 	const [postal, setPostal] = useState();
