@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { darkLogo } from "../assets";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Vortex } from "react-loader-spinner";
+import { motion } from "framer-motion";
 
 const Signup = () => {
+	const navigate = useNavigate()
 	const auth = getAuth();
 	const [clientName, setClientName] = useState("");
 	const [email, setEmail] = useState("");
@@ -16,6 +19,11 @@ const Signup = () => {
 	const [errEmail, setErrEmail] = useState("");
 	const [errPassword, setErrPassword] = useState("");
 	const [errCpassword, setErrCpassword] = useState("");
+	const [firebaseErr, setFirebaseErr] = useState("");
+
+	//Loader starts here
+	const [loading, setLoading] = useState("");
+	const [successMsg, setSuccessMsg] = useState("");
 
 	//Handle function Start
 	const handleName = (e) => {
@@ -44,12 +52,14 @@ const Signup = () => {
 
 	//submit button starts here
 	const handleRegistration = (e) => {
+
 		e.preventDefault();
 		if (!clientName) {
 			setErrClientName(" Enter your name");
 		}
 		if (!email) {
 			setErrEmail("Enter your email or mobile phone number");
+			setFirebaseErr("")
 		} else {
 			if (!emailValidation(email)) {
 				setErrEmail("Please enter a valid email");
@@ -78,22 +88,41 @@ const Signup = () => {
 			cPassword &&
 			cPassword === password
 		) {
-			console.log(clientName, email, password, cPassword);
+			setLoading(true);
+			// console.log(clientName, email, password, cPassword);
+			//Firebase registration starts here
 			createUserWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
+					updateProfile(auth.currentUser, {
+						displayName: clientName,
+						photoURL: "https://lh3.googleusercontent.com/ogw/AKPQZvwHw3FImupFIRNwjdm4CyL8syvUr2eNQIdcIi8laQ=s32-c-mo"
+					})
 					// Signed up 
 					const user = userCredential.user;
+					// console.log(user);
+					setLoading(false);
+					setSuccessMsg("Account created successfully!")
+					setTimeout(() => {
+						navigate("/signin")
+					}, 3000)
 					// ...
 				})
 				.catch((error) => {
 					const errorCode = error.code;
-					const errorMessage = error.message;
+					// const errorMessage = error.message;
+					// console.log(errorCode, errorMessage);
+					if (errorCode.includes("auth/email-already-in-use")) {
+						setFirebaseErr("email already in use, Try another one")
+					}
 					// ..
 				});
+			//Firebase registration ends here
 			setClientName("");
 			setEmail("");
 			setPassword("");
 			setCpassword("");
+			setErrPassword("");
+			setFirebaseErr("");
 		}
 	};
 	return (
@@ -157,6 +186,17 @@ const Signup = () => {
 										{errEmail}
 									</p>
 								)}
+								{firebaseErr && (
+									<p
+										className="text-red-600 text-xs font-xs font-semibold tracking-wide 
+										flex items-center gap-2 -mt-1.5 italic">
+										{" "}
+										<span className="italic font-titleFont font-extrabold text-base">
+											!
+										</span>
+										{firebaseErr}
+									</p>
+								)}
 							</div>
 							<div className="flex flex-col gap-3">
 								<p className="text-sm font-medium">Password</p>
@@ -217,6 +257,33 @@ const Signup = () => {
 								className="w-full py-1.5 text-sm font-normal rounded-sm bg-[#fed20b] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput mt-1">
 								Continue
 							</button>
+							{
+								loading &&
+								(
+									<div className="flex justify-center">
+										<Vortex
+											visible={true}
+											height="80"
+											width="80"
+											ariaLabel="vortex-loading"
+											wrapperStyle={{}}
+											wrapperClass="vortex-wrapper"
+											colors={['#fed20b', '#fed20b', '#fed20b', '#fed20b', '#fed20b', '#fed20b']}
+										/>
+									</div>
+								)
+							}
+							{
+								successMsg && (
+									<div>
+										<motion.p
+											initial={{ y: 10, opacity: 0 }}
+											animate={{ y: 0, opacity: 1 }}
+											transition={{ duration: 0.5, delay: 0.5 }} className='text-base font-titleFont font-semibold text-green-500 border-[1px]
+										border-green-500 px-2 text-center'>{successMsg}</motion.p>
+									</div>
+								)
+							}
 						</div>
 						<p className="text-xs text-black leading-4 mt-4">
 							By creating an account, you agree to Amazon's{" "}
@@ -247,7 +314,6 @@ const Signup = () => {
 						<div className="w-full text-xs text-gray-600 mt-4 flex items-center my-3">
 							<span className="w-2/3 h-[1px] bg-zinc-400 inline-flex ml-12"></span>
 						</div>
-
 						<p className=" text-xs text-black">
 							Already have an account?{" "}
 							<Link to="/signin">
