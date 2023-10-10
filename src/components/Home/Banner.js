@@ -15,7 +15,7 @@ const Banner = () => {
 	const settings = {
 		dots: true,
 		infinite: true,
-		autoplay: true,
+		autoPlay: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
@@ -26,21 +26,20 @@ const Banner = () => {
 			<div
 				style={{
 					position: "absolute",
-					top: "0",
+					top: "70%",
 					left: "0",
+					right: "0",
 					margin: "0 auto",
 					transform: "translate(-50% -50%)",
 					width: "210px",
-				}}
-			>
+				}}>
 				<ul
 					style={{
 						width: "100%",
 						display: "flex",
 						alignItems: "center",
 						justifyContent: "space-between",
-					}}
-				>
+					}}>
 					{" "}
 					{dots}{" "}
 				</ul>
@@ -76,8 +75,7 @@ const Banner = () => {
 							cursor: "pointer",
 							border: "1px solid white",
 						}
-				}
-			>
+				}>
 				{i + 1}
 			</div>
 		),
