@@ -269,6 +269,7 @@ const Signup = () => {
 											wrapperStyle={{}}
 											wrapperClass="vortex-wrapper"
 											colors={['#fed20b', '#fed20b', '#fed20b', '#fed20b', '#fed20b', '#fed20b']}
+										// colors={['#fed20b', 'green', '#fed20b', 'green', 'green', '#fed20b']}
 										/>
 									</div>
 								)
