@@ -63,7 +63,7 @@ const Signin = () => {
 					// console.log(user);
 					// ...
 					setLoading(false);
-					setSuccessMsg("User signed in successfully")
+					setSuccessMsg("User signed in successfully, Please wait...");
 					setTimeout(() => {
 						navigate("/")
 					}, 2000)
