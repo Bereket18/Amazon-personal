@@ -64,10 +64,10 @@ const Signin = () => {
 					// const errorMessage = error.message;
 					// console.log(email, password);
 					console.log(errorCode)
-					if (errorCode.includes("auth/invalid-email || auth/invalid-login-credentials")) {
+					if (errorCode.includes("auth/invalid-email")) {
 						setUserEmailErr("Invalid Email")
 					}
-					if (errorCode.includes("auth/wrong-password || auth/invalid-login-credentials")) {
+					if (errorCode.includes("auth/wrong-password") || ("auth/invalid-login-credentials")) {
 						setUserPassErr("Wrong Password! try again")
 					}
 					console.log("Something is wrong, Try with the correct credential!")
