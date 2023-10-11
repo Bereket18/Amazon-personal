@@ -4,8 +4,11 @@ import { darkLogo } from "../assets";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { Link, useNavigate } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/amazonSlice";
 
 const Signin = () => {
+	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const auth = getAuth();
 	const [email, setEmail] = useState("");
@@ -26,12 +29,14 @@ const Signin = () => {
 	const handleEmail = (e) => {
 		setEmail(e.target.value);
 		setErrEmail("");
+		setUserEmailErr("");
 	};
 
 	//handle password starts here
 	const handlePassword = (e) => {
 		setPassword(e.target.value);
 		setErrPassword("");
+		setUserPassErr("")
 	};
 
 	//handle login starts here
@@ -49,7 +54,13 @@ const Signin = () => {
 				.then((userCredential) => {
 					// Signed in 
 					const user = userCredential.user;
-					console.log(user);
+					dispatch(setUserInfo({
+						_id: user.uid,
+						userName: user.displayName,
+						email: user.email,
+						image: user.photoURL
+					}))
+					// console.log(user);
 					// ...
 					setLoading(false);
 					setSuccessMsg("User signed in successfully")

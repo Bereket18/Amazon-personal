@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
+import LogoutIcon from '@mui/icons-material/Logout';
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { logo } from "../assets/index";
@@ -8,11 +10,16 @@ import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { userSignOut } from "../redux/amazonSlice";
 
 const Header = () => {
+	const auth = getAuth();
+	const dispatch = useDispatch();
 	const products = useSelector((state) => state.amazon.products)
-	console.log(products)
+	const userInfo = useSelector((state) => state.amazon.userInfo)
+
+	// console.log(products, userInfo)
 
 	const [city, setCity] = useState();
 	const [postal, setPostal] = useState();
@@ -28,6 +35,18 @@ const Header = () => {
 
 	const [ShowAll, setShowAll] = useState(false);
 	console.log(ShowAll);
+
+	const handleLogout = () => {
+		// const auth = getAuth();
+		signOut(auth)
+			.then(() => {
+				console.log("Sign-out successful.")
+				dispatch(userSignOut())
+			}).catch((error) => {
+				console.log(error)
+				// An error happened.
+			});
+	}
 
 	return (
 		<div className="w-full sticky top-0 z-50">
@@ -85,9 +104,17 @@ const Header = () => {
 				{/*=============Sign-in Start here==============*/}
 				<Link to="/signin">
 					<div className="flex flex-col items-start justify-center headerHover">
-						<p className="text-xs md:text-xs text-white md:text-lightText font-light">
-							Hello, sign in
-						</p>
+						{
+							userInfo ? (
+								<p className="text-sm text-gray-100 font-medium">
+									Hello,{" "}{userInfo.userName}
+								</p>
+							) : (
+								<p className="text-xs md:text-xs text-white md:text-lightText font-light">
+									Hello, sign in
+								</p>
+							)
+						}
 						<p className="text-sm font-semibold -mt-1 text-whiteText hidden md:inline-flex">
 							Accounts & Lists{" "}
 							<span>
@@ -117,6 +144,16 @@ const Header = () => {
 						</p>
 					</div>
 				</Link>
+				{userInfo && (
+					<div
+						onClick={handleLogout}
+						className="flex flex-col justify-center items-center headerHover relative">
+						<LogoutIcon />
+						<p className="hidden mdl:inline-flex text-xs font-semibold text-whiteText">
+							Log Out
+						</p>
+					</div>
+				)}
 				{/*=============cart Ends here==============*/}
 			</div>
 			<HeaderBottom />

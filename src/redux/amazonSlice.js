@@ -9,6 +9,8 @@ export const amazonSlice = createSlice({
   name: "amazon",
   initialState,
   reducers: {
+
+    //Add to Cart
     addToCart: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload.id);
       if (item) {
@@ -17,6 +19,8 @@ export const amazonSlice = createSlice({
         state.products.push(action.payload)
       }
     },
+
+    //increment decrement quantity
     incrementQuantity: (state, action) => {
       const item = state.products.find((item) => item.id === action.payload)
       item.quantity++
@@ -29,14 +33,28 @@ export const amazonSlice = createSlice({
         item.quantity--
       }
     },
+
+    //delete a product
     deleteItem: (state, action) => {
       state.products = state.products.filter((item) => item.id !== action.payload)
     },
+
+    //reset the cart items
     resetCart: (state) => {
       state.products = []
+    },
+
+    //user authentication
+    setUserInfo: (state, action) => {
+      state.userInfo = action.payload
+    },
+
+    //user Sign Out
+    userSignOut: (state) => {
+      state.userInfo = null
     }
   },
 });
 
-export const { addToCart, deleteItem, resetCart, incrementQuantity, decrementQuantity } = amazonSlice.actions;
+export const { addToCart, deleteItem, resetCart, incrementQuantity, decrementQuantity, setUserInfo, userSignOut } = amazonSlice.actions;
 export default amazonSlice.reducer;
