@@ -61,16 +61,17 @@ const Signin = () => {
 				.catch((error) => {
 					setLoading(false);
 					const errorCode = error.code;
-					if (errorCode.includes("auth/invalid-email")) {
+					// const errorMessage = error.message;
+					// console.log(email, password);
+					console.log(errorCode)
+					if (errorCode.includes("auth/invalid-email || auth/invalid-login-credentials")) {
 						setUserEmailErr("Invalid Email")
 					}
-					if (errorCode.includes("auth/wrong-password")) {
+					if (errorCode.includes("auth/wrong-password || auth/invalid-login-credentials")) {
 						setUserPassErr("Wrong Password! try again")
 					}
 					console.log("Something is wrong, Try with the correct credential!")
 				});
-			// const errorMessage = error.message;
-			// console.log(email, password);
 			setEmail("");
 			setPassword("");
 		}
