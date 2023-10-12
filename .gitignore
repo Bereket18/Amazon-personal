@@ -22,6 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-firebase.config.js
-ErrorBoundary.js
+.firebase.config.js
+.ErrorBoundary.js
 /api
