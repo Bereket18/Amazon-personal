@@ -34,16 +34,16 @@ const Header = () => {
 	}, []);
 
 	const [ShowAll, setShowAll] = useState(false);
-	console.log(ShowAll);
+	// console.log(ShowAll);
 
 	const handleLogout = () => {
 		// const auth = getAuth();
 		signOut(auth)
 			.then(() => {
-				console.log("Sign-out successful.")
+				// console.log("Sign-out successful.")
 				dispatch(userSignOut())
 			}).catch((error) => {
-				console.log(error)
+				// console.log(error)
 				// An error happened.
 			});
 	}
