@@ -39,19 +39,19 @@ const Products = () => {
 								</span>
 							</li>
 							<li className="productLi">
-								Compare{" "}
+								Add to Cart{" "}
 								<span>
 									<ShoppingCartIcon />
 								</span>
 							</li>
 							<li className="productLi">
-								Compare{" "}
+								View Details{" "}
 								<span>
 									<ArrowCircleRightIcon />
 								</span>
 							</li>
 							<li className="productLi">
-								Compare{" "}
+								Add to Wish List{" "}
 								<span>
 									<FavoriteIcon />
 								</span>

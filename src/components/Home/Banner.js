@@ -81,27 +81,67 @@ const Banner = () => {
 		),
 		responsive: [
 			{
-				breakpoint: 1024,
+				breakpoint: 576,
 				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 3,
-					infinite: true,
 					dots: true,
-				},
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2,
-					initialSlide: 2,
-				},
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1,
+					appendDots: (dots) => (
+						<div
+							style={{
+								position: "absolute",
+								top: "70%",
+								left: "0",
+								right: "0",
+								margin: "0 auto",
+								transform: "translate(-50% -50%)",
+								width: "150px",
+							}}>
+							<ul
+								style={{
+									width: "100%",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "space-between",
+								}}>
+								{" "}
+								{dots}{" "}
+							</ul>
+						</div>
+					),
+					customPaging: (i) => (
+						<div
+							style={
+								i === dotActive
+									? {
+										width: "20px",
+										height: "20px",
+										borderRadius: "50%",
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
+										color: "white",
+										background: "#131921",
+										padding: "8px 0",
+										cursor: "pointer",
+										border: "1px solid #f3a847",
+									}
+									: {
+										width: "20px",
+										height: "20px",
+										borderRadius: "50%",
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
+										background: "#232F3E",
+										color: "white",
+										padding: "8px 0",
+										cursor: "pointer",
+										border: "1px solid white",
+										fontSize: "12px",
+									}
+							}>
+							{i + 1}
+						</div>
+					),
 				},
 			},
 		],
